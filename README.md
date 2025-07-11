@@ -35,7 +35,7 @@
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/soulscribe.git
+git clone https://github.com/Crazycraftie/soulscribe.git
 cd soulscribe
 npm install
 ```
@@ -43,7 +43,7 @@ npm install
 Create a `.env` file in the root and add your API base URL:
 
 ```env
-VITE_BASE_URL=https://your-api-url.com
+VITE_BASE_URL=http://localhost:3000
 ```
 
 Run the development server:
@@ -76,8 +76,8 @@ src/
 ## ✍️ Author
 
 **Dhirendra Singh**  
-🔗 [GitHub](https://github.com/your-username)  
-🔗 [LinkedIn](https://linkedin.com/in/your-profile)
+🔗 [GitHub](https://github.com/Crazycraftie)  
+🔗 [LinkedIn](https://www.linkedin.com/in/dhirendra-pratap-singh-b75764297/)
 
 ---
 
