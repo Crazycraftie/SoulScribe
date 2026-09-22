@@ -6,7 +6,7 @@ import auth from '../middleware/auth.js';
 
 const blogRouter = express.Router();
   
-blogRouter.post("/add",upload.single('image'),auth,addBlog)
+blogRouter.post("/add",auth,upload.single('image'),addBlog)
 blogRouter.get('/all',getAllBlogs);
 blogRouter.get('/:id',getBlogById);
 blogRouter.post('/delete',auth,deleteBlogById);

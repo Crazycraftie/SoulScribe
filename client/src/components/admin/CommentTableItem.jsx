@@ -1,4 +1,3 @@
-import { img, p } from 'motion/react-client';
 import React from 'react'
 import { assets } from '../../assets/assets';
 import { useAppContext } from '../../context/AppContext';
