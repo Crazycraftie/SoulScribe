@@ -38,6 +38,20 @@ const BlogTableItem = ({ blog, fetchBlogs, index }) => {
     }
   }
 
+  const toggleVisibility = async () => {
+    try {
+      const { data } = await axios.post('/api/blog/toggle-visibility', { id: blog._id })
+      if (data.success) {
+        toast.success(data.message)
+        await fetchBlogs()
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
   return (
     <tr className='border-y border-gray-300'>
       <td className='px-2 py-4'>{index}</td>
@@ -48,12 +62,23 @@ const BlogTableItem = ({ blog, fetchBlogs, index }) => {
           {blog.isPublished ? 'Published' : 'Unpublished'}
         </p>
       </td>
+      <td className='px-2 py-4 max-sm:hidden'>
+        <p className={`${blog.visibility === 'private' ? "text-orange-700" : "text-green-600"}`}>
+          {blog.visibility === 'private' ? 'Private' : 'Public'}
+        </p>
+      </td>
       <td className='px-2 py-4 flex text-xs gap-3'>
         <button
           onClick={togglePublish}
           className='border px-2 py-0.5 mt-1 rounded cursor-pointer'
         >
           {blog.isPublished ? 'Unpublish' : 'Publish'}
+        </button>
+        <button
+          onClick={toggleVisibility}
+          className='border px-2 py-0.5 mt-1 rounded cursor-pointer'
+        >
+          {blog.visibility === 'private' ? 'Make Public' : 'Make Private'}
         </button>
         <img
           src={assets.cross_icon}

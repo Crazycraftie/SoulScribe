@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { parse } from 'marked';
 
 const AddBlog = () => {
-  const { axios } = useAppContext();
+  const { axios, fetchBlogs } = useAppContext();
   const [isAdding, setIsAdding] = useState(false);
   const [loading, setLoading] = useState(false);
   const editorRef = useRef(null);
@@ -17,6 +17,7 @@ const AddBlog = () => {
   const [subTitle, setSubTitle] = useState('');
   const [category, setCategory] = useState('');
   const [isPublished, setIsPublished] = useState(false);
+  const [visibility, setVisibility] = useState('public');
 
   const generateContent = async () => {
     if (!title) return toast.error('Please enter a title');
@@ -49,6 +50,7 @@ const AddBlog = () => {
         description,
         category,
         isPublished,
+        visibility,
       };
 
       const formData = new FormData();
@@ -65,6 +67,8 @@ const AddBlog = () => {
         quillRef.current.root.innerHTML = '';
         setCategory('');
         setIsPublished(false);
+        setVisibility('public');
+        fetchBlogs();
       } else {
         toast.error(data.message);
       }
@@ -162,6 +166,16 @@ const AddBlog = () => {
             onChange={e => setIsPublished(e.target.checked)}
           />
         </div>
+
+        <p className='mt-4 font-medium'>Who can see this blog?</p>
+        <select
+          onChange={e => setVisibility(e.target.value)}
+          value={visibility}
+          className='block w-full max-w-lg mt-2 px-3 py-2 border text-gray-500 border-gray-300 outline-none rounded'
+        >
+          <option value="public">Public — visible to everyone</option>
+          <option value="private">Private — visible only to you when logged in</option>
+        </select>
 
         <button
           disabled={isAdding}

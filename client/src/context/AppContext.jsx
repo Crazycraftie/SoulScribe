@@ -24,16 +24,16 @@ export const AppProvider =({children})=>{
    }
 
    useEffect(()=>{
-    fetchBlogs();
     const token=localStorage.getItem('token')
     if(token){
         setToken(token);
         axios.defaults.headers.common['Authorization']=`${token}`;
     }
+    fetchBlogs();
    },[])
 
     const value={
-        axios, navigate, token, setToken, blogs, setBlogs, input, setInput
+        axios, navigate, token, setToken, blogs, setBlogs, input, setInput, fetchBlogs
     }
     return(
        < AppContext.Provider value={value}>

@@ -55,6 +55,7 @@ const Dashboard = () => {
               <th className="px-2 py-4">Title</th>
               <th className="px-2 py-4 max-sm:hidden">Date</th>
               <th className="px-2 py-4 max-sm:hidden">Status</th>
+              <th className="px-2 py-4 max-sm:hidden">Visibility</th>
               <th className="px-2 py-4">Actions</th>
             </tr>
           </thead>

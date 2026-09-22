@@ -87,16 +87,16 @@ const Blog = () => {
           className="inline-block py-1 px-4 rounded-full mb-6 border text-sm
           border-primary/35 bg-primary/5 font-medium text-primary"
         >
-          Author
+          {data.authorName || 'Author'}
         </p>
       </div>
 
       {/* Blog Content */}
-      <div className="mx-5 max-w-5xl md:mx-auto mt-8 mb-14">
+      <div className="mx-5 max-w-3xl md:mx-auto mt-8 mb-14">
         <img
           src={data.image}
           alt="Blog thumbnail"
-          className="rounded-3xl mb-6"
+          className="rounded-3xl mb-6 w-full max-h-[500px] object-cover"
         />
         <div
           className="rich-text max-w-3xl mx-auto"

@@ -5,13 +5,14 @@ import Sidebar from '../../components/admin/Sidebar';
 import { useAppContext } from '../../context/AppContext';
 
 const Layout = () => {
-  const { axios, setToken, navigate } = useAppContext();
+  const { axios, setToken, navigate, fetchBlogs } = useAppContext();
 
   const logout = () => {
     localStorage.removeItem('token');
     delete axios.defaults.headers.common['Authorization']; // Safer removal
     setToken(null);
     navigate('/');
+    fetchBlogs();
   };
 
   return (

@@ -36,6 +36,7 @@ const ListBlog = () => {
               <th scope='col' className='px-2 py-4'>Title</th>
               <th scope='col' className='px-2 py-4 max-sm:hidden'>Date</th>
               <th scope='col' className='px-2 py-4 max-sm:hidden'>Status</th>
+              <th scope='col' className='px-2 py-4 max-sm:hidden'>Visibility</th>
               <th scope='col' className='px-2 py-4'>Actions</th>
             </tr>
           </thead>
@@ -52,7 +53,7 @@ const ListBlog = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className='text-center py-6 text-gray-400 italic'>
+                <td colSpan="6" className='text-center py-6 text-gray-400 italic'>
                   No entries found. Your writing journey awaits.
                 </td>
               </tr>
